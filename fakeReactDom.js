@@ -12,6 +12,8 @@ export function renderElement(element) {
             if (key.startsWith('on')) {
                 const eventName = key.slice(2).toLowerCase()
                 domElement.addEventListener(eventName, val)
+            } else if (key === 'className') {
+                domElement.className = val
             }
         })
 

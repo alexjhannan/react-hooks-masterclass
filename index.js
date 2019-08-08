@@ -12,7 +12,7 @@ function Counter() {
 
 // a component with named props!
 function Button({ label }) {
-    return e('button', { onClick: () => alert('clicked') }, label)
+    return e('button', { className: 'button', onClick: () => alert('clicked') }, label)
 }
 
 const App = e('div', {},
