@@ -1,4 +1,4 @@
-import * as FakeReactDOM from './lib/fakeReactDom.js'
+import FakeReactDOM from './lib/fakeReactDom.js'
 import App from './App.js'
 
 

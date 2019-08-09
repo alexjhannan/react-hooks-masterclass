@@ -30,6 +30,21 @@ export function renderElement(element) {
 
 }
 
-export function render(element, container) {
-    container.appendChild(renderElement(element))
+// caching for easy re-rendering
+let _currentApp = null
+let _element = null
+let _container = null
+
+export function render(element = _element, container = _container) {
+    const app = renderElement(element)
+    _element = element
+    _container = container
+    _currentApp ?
+        container.replaceChild(app, _currentApp) // if app has already been rendered, replace instead of appending
+        : container.appendChild(app)
+    _currentApp = app
+}
+
+export default {
+    render
 }
