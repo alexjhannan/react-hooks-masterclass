@@ -24,6 +24,17 @@ export function useEffect(cb, deps) {
 
     if (hasChanged) cb()
     hooks[idx] = deps
+    idx++
+}
+
+export function useRef(initialValue) {
+    if (!hooks[idx]) {
+        console.log('setting ref')
+        hooks[idx] = Object.seal({ current: initialValue }) // locks the object in place, but allows `current` to change
+    }
+    const refVal = hooks[idx]
+
+    return refVal
 }
 
 export function renderElement(element) {

@@ -16,3 +16,7 @@ export function useState(initialValue) {
 export function useEffect(cb, deps) {
     return dispatcher.useEffect(cb, deps)
 }
+
+export function useRef(initialValue) {
+    return dispatcher.useRef(initialValue)
+}

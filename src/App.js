@@ -1,9 +1,12 @@
-import { createElement as e, useState, useEffect } from './lib/fakeReact.js'
+import { createElement as e, useState, useEffect, useRef } from './lib/fakeReact.js'
 import fakeReactDOM from './lib/fakeReactDom.js'
 
 function Counter() {
     const [value, setValue] = useState(25)
     useEffect(() => { console.log('using an effect')}, [])
+    const thing = useRef('test')
+    console.log(thing)
+
 
     const updateCounter = (label) => {
         if (label === '-') {
