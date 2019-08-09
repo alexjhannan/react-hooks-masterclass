@@ -1,20 +1,19 @@
-import { createElement as e } from './lib/fakeReact.js'
+import { createElement as e, useState } from './lib/fakeReact.js'
 import fakeReactDOM from './lib/fakeReactDom.js'
 
-let value = 0
-
 function Counter() {
+    const [value, setValue] = useState(25)
+
     const updateCounter = (label) => {
         if (label === '-') {
-            value -= 1
+            setValue(value - 1)
         }
         if (label === '+') {
-            value += 1
+            setValue(value + 1)
         }
         if (label === 'reset') {
-            value = 0
+            setValue(0)
         }
-        fakeReactDOM.render() // re-render
     }
 
     return e('div', {},
