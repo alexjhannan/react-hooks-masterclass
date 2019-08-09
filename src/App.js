@@ -1,5 +1,4 @@
-import { createElement as e } from './fakeReact.js'
-import { render } from './fakeReactDom.js'
+import { createElement as e } from './lib/fakeReact.js'
 
 function Counter() {
     return e('div', {},
@@ -20,4 +19,4 @@ const App = e('div', {},
     e(Counter, {}),
 )
 
-render(App, document.getElementById('root'))
+export default App
