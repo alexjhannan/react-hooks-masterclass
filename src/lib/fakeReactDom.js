@@ -2,11 +2,8 @@ let hooks = []
 let idx = 0
 
 export function useState(initialValue) {
-    console.log('useState')
-    let state = hooks[idx] || initialValue
+    let state = hooks[idx] !== undefined ? hooks[idx] : initialValue
     let _idx = idx
-
-    console.log(hooks)
 
     function setState(newValue) {
         hooks[_idx] = newValue
@@ -17,7 +14,7 @@ export function useState(initialValue) {
     return [state, setState]
 }
 
-export function useEffect(callback, deps) {
+export function useEffect(cb, deps) {
     const previousDeps = hooks[idx]
     let hasChanged = true
 
@@ -25,7 +22,7 @@ export function useEffect(callback, deps) {
         hasChanged = deps.some((dep, idx) => !Object.is(dep, previousDeps[idx]))
     }
 
-    if (hasChanged) callback()
+    if (hasChanged) cb()
     hooks[idx] = deps
 }
 

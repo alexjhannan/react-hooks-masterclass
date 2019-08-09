@@ -13,6 +13,6 @@ export function useState(initialValue) {
     return dispatcher.useState(initialValue)
 }
 
-export function useEffect(callback, deps) {
-    return dispatcher.useEffect(callback, deps)
+export function useEffect(cb, deps) {
+    return dispatcher.useEffect(cb, deps)
 }
